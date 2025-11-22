@@ -7,10 +7,18 @@ This repository contains training materials, sample code, and session notes for 
 ```
 DataPipelineEngineering/
 ├── README.md           # This file
-├── week1.md           # Session 1: Introduction & Fundamentals
-├── week2.md           # Session 2: Data Ingestion & Storage
-├── week3.md           # Session 3: Data Cleaning & Transformation
-├── code/              # Sample code and exercises
+├── pyproject.toml      # Python project configuration
+├── poetry.lock         # Dependency lock file
+├── week1/             # Session 1: Introduction & Fundamentals
+│   └── week1.md
+├── week2/             # Session 2: Data Ingestion & Storage
+│   ├── week2.md
+│   ├── Week2_Ingest_Explore_PySpark.ipynb
+│   └── Week2_Ingest_Explore_PySpark.py
+├── week3/             # Session 3: Data Cleaning & Transformation
+│   ├── week3.md
+│   └── Week3_Spark_PySpark_Programming.ipynb
+├── code/              # Shared code and utilities
 ├── datasets/          # Training datasets
 └── resources/         # Additional learning materials
 ```

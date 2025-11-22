@@ -1,0 +1,10 @@
+{"product_id": 101, "name": "Wireless Headphones", "category": "Electronics", "brand": "TechCorp", "price": 29.99, "in_stock": true}
+{"product_id": 102, "name": "Gaming Laptop", "category": "Electronics", "brand": "GameTech", "price": 149.50, "in_stock": true}
+{"product_id": 103, "name": "Coffee Mug", "category": "Kitchen", "brand": "HomeGoods", "price": 12.75, "in_stock": true}
+{"product_id": 104, "name": "Running Shoes", "category": "Sports", "brand": "SportMax", "price": 89.00, "in_stock": false}
+{"product_id": 105, "name": "Notebook", "category": "Office", "brand": "PaperPlus", "price": 15.25, "in_stock": true}
+{"product_id": 106, "name": "Bluetooth Speaker", "category": "Electronics", "brand": "SoundWave", "price": 75.00, "in_stock": true}
+{"product_id": 107, "name": "Desk Lamp", "category": "Office", "brand": "LightCorp", "price": 45.50, "in_stock": true}
+{"product_id": 108, "name": "Smartphone", "category": "Electronics", "brand": "MobileTech", "price": 199.99, "in_stock": false}
+{"product_id": 109, "name": "Water Bottle", "category": "Sports", "brand": "HydroMax", "price": 65.75, "in_stock": true}
+{"product_id": 110, "name": "Backpack", "category": "Travel", "brand": "AdventurePack", "price": 125.00, "in_stock": true}

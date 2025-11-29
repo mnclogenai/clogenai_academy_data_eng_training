@@ -11,11 +11,28 @@ graph TB
     C1[Data Quality] --> C
     D1[Business Metrics] --> D
     
-    style A fill:#ff9999
-    style B fill:#ffcc99
-    style C fill:#99ccff
-    style D fill:#99ff99
-    style E fill:#cc99ff
+    style A fill:#8B0000,color:#fff
+    style B fill:#8B4513,color:#fff
+    style C fill:#2F4F4F,color:#fff
+    style D fill:#556B2F,color:#fff
+    style E fill:#483D8B,color:#fff
+    style B1 fill:#191970,color:#fff
+    style C1 fill:#191970,color:#fff
+    style D1 fill:#191970,color:#fff
+```
+
+**Medallion Architecture Flow:**
+```
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│  Raw Data       │───▶│  Bronze Layer   │───▶│  Silver Layer   │───▶│   Gold Layer    │───▶│  Analytics &    │
+│  Sources        │    │  (Raw Ingestion)│    │ (Clean & Valid) │    │(Business Ready) │    │      BI         │
+└─────────────────┘    └─────────────────┘    └─────────────────┘    └─────────────────┘    └─────────────────┘
+                              ▲                        ▲                        ▲
+                              │                        │                        │
+                       ┌─────────────┐        ┌─────────────┐        ┌─────────────┐
+                       │   Schema    │        │    Data     │        │  Business   │
+                       │  Evolution  │        │   Quality   │        │   Metrics   │
+                       └─────────────┘        └─────────────┘        └─────────────┘
 ```
 
 ## Learning Objectives
@@ -36,15 +53,32 @@ Modern data systems receive changing datasets: new columns, modified types, upda
 
 ```mermaid
 flowchart LR
-    A["Orders V1<br/>📋 Basic Fields"] --> B["Schema Evolution<br/>🔄 Automatic Handling"]
-    C["Orders V2<br/>📋 + New Columns"] --> B
-    D["Orders V3<br/>📋 + Type Changes"] --> B
-    B --> E["Delta Table<br/>🗃️ Unified Schema"]
+    A["Orders V1 Basic Fields"] --> B["Schema Evolution Automatic Handling"]
+    C["Orders V2 + New Columns"] --> B
+    D["Orders V3 + Type Changes"] --> B
+    B --> E["Delta Table Unified Schema"]
     
-    style A fill:#ffcccc
-    style C fill:#ffffcc
-    style D fill:#ccffcc
-    style E fill:#ccccff
+    style A fill:#8B0000,color:#fff
+    style B fill:#191970,color:#fff
+    style C fill:#8B4513,color:#fff
+    style D fill:#556B2F,color:#fff
+    style E fill:#2F4F4F,color:#fff
+```
+
+**Schema Evolution Process:**
+```
+┌─────────────┐
+│  Orders V1  │────┐
+│ Basic Fields│    │    ┌──────────────────┐    ┌─────────────────┐
+└─────────────┘    ├───▶│ Schema Evolution │───▶│   Delta Table   │
+┌─────────────┐    │    │ Auto Handling    │    │ Unified Schema  │
+│  Orders V2  │────┤    └──────────────────┘    └─────────────────┘
+│+ New Columns│    │
+└─────────────┘    │
+┌─────────────┐    │
+│  Orders V3  │────┘
+│+Type Changes│
+└─────────────┘
 ```
 
 Delta Lake's schema evolution + enforcement ensures:
@@ -86,21 +120,26 @@ delta_tbl.history().show()
 
 ```mermaid
 graph TD
-    A["📥 New Data Arrives"] --> B{"Record Exists?"}
-    B -->|Yes| C["🔄 UPDATE"]
-    B -->|No| D["➕ INSERT"]
-    C --> E["✅ MERGE Complete"]
+    A["New Data Arrives"] --> B{"Record Exists?"}
+    B -->|Yes| C["UPDATE"]
+    B -->|No| D["INSERT"]
+    C --> E["MERGE Complete"]
     D --> E
     
-    F["⏰ Continuous Ingestion"] --> A
-    G["📅 Late-arriving Events"] --> A
-    H["💰 Updated Transactions"] --> A
-    I["🔄 Slowly Changing Dimensions"] --> A
+    F["Continuous Ingestion"] --> A
+    G["Late-arriving Events"] --> A
+    H["Updated Transactions"] --> A
+    I["Slowly Changing Dimensions"] --> A
     
-    style A fill:#e1f5fe
-    style C fill:#fff3e0
-    style D fill:#e8f5e8
-    style E fill:#f3e5f5
+    style A fill:#2F4F4F,color:#fff
+    style B fill:#191970,color:#fff
+    style C fill:#8B4513,color:#fff
+    style D fill:#556B2F,color:#fff
+    style E fill:#483D8B,color:#fff
+    style F fill:#8B0000,color:#fff
+    style G fill:#8B0000,color:#fff
+    style H fill:#8B0000,color:#fff
+    style I fill:#8B0000,color:#fff
 ```
 
 **Use Cases:**
@@ -205,23 +244,23 @@ df = orders.withColumn("prev_order", lag("order_date").over(w)) \
 
 ```mermaid
 flowchart TB
-    subgraph "Silver Layer"
-        S1["📊 Orders"]
-        S2["👥 Customers"]
-        S3["📦 Products"]
+    subgraph SL ["Silver Layer"]
+        S1["Orders"]
+        S2["Customers"]
+        S3["Products"]
     end
     
-    subgraph "Gold Layer - Business Metrics"
-        G1["💰 Revenue Metrics"]
-        G2["🔄 Retention Analysis"]
-        G3["📈 Customer LTV"]
-        G4["📊 Product Performance"]
+    subgraph GL ["Gold Layer"]
+        G1["Revenue Metrics"]
+        G2["Retention Analysis"]
+        G3["Customer LTV"]
+        G4["Product Performance"]
     end
     
-    subgraph "Analytics & BI"
-        A1["📈 Dashboards"]
-        A2["📊 Reports"]
-        A3["🤖 ML Models"]
+    subgraph AL ["Analytics"]
+        A1["Dashboards"]
+        A2["Reports"]
+        A3["ML Models"]
     end
     
     S1 --> G1
@@ -237,10 +276,16 @@ flowchart TB
     G3 --> A2
     G4 --> A3
     
-    style G1 fill:#ffd700
-    style G2 fill:#ffd700
-    style G3 fill:#ffd700
-    style G4 fill:#ffd700
+    style S1 fill:#2F4F4F,color:#fff
+    style S2 fill:#2F4F4F,color:#fff
+    style S3 fill:#2F4F4F,color:#fff
+    style G1 fill:#8B4513,color:#fff
+    style G2 fill:#8B4513,color:#fff
+    style G3 fill:#8B4513,color:#fff
+    style G4 fill:#8B4513,color:#fff
+    style A1 fill:#483D8B,color:#fff
+    style A2 fill:#483D8B,color:#fff
+    style A3 fill:#483D8B,color:#fff
 ```
 
 ### Why Gold Tables Exist
@@ -360,11 +405,11 @@ flowchart TD
     B4 --> C1
     C1 --> C2
     
-    style B1 fill:#e3f2fd
-    style B2 fill:#fff3e0
-    style B3 fill:#e8f5e8
-    style B4 fill:#f3e5f5
-    style C1 fill:#ffd700
+    style B1 fill:#2F4F4F,color:#fff
+    style B2 fill:#8B4513,color:#fff
+    style B3 fill:#556B2F,color:#fff
+    style B4 fill:#483D8B,color:#fff
+    style C1 fill:#8B0000,color:#fff
 ```
 
 ### 🎯 Pipeline
@@ -375,68 +420,6 @@ Build a pipeline that:
 3. 📊 Produces customer metrics using joins, aggregations & window functions  
 4. 🏆 Stores results in a Gold Delta table  
 5. 🤖 Uses Databricks AI to define schema + generate DDL  
-
----
-
-### 📋 Step-by-Step Checklist
-
-```mermaid
-gantt
-    title Project Timeline & Phases
-    dateFormat  HH:mm
-    axisFormat %H:%M
-    
-    section Phase 1 - Schema Evolution
-    Load V1,V2,V3 files    :active, p1a, 09:00, 30m
-    Apply evolution        :p1b, after p1a, 20m
-    Inspect history        :p1c, after p1b, 10m
-    
-    section Phase 2 - MERGE Logic
-    Identify keys          :p2a, after p1c, 15m
-    Build MERGE            :p2b, after p2a, 25m
-    Validate counts        :p2c, after p2b, 10m
-    
-    section Phase 3 - Metrics
-    Join operations        :p3a, after p2c, 20m
-    Aggregations          :p3b, after p3a, 25m
-    Window functions      :p3c, after p3b, 20m
-    
-    section Phase 4 - Gold Table
-    AI schema design      :p4a, after p3c, 15m
-    Generate DDL          :p4b, after p4a, 10m
-    Create table          :p4c, after p4b, 15m
-    
-    section Phase 5 - Validation
-    Schema validation     :p5a, after p4c, 10m
-    Count validation      :p5b, after p5a, 10m
-    Final preview         :p5c, after p5b, 10m
-```
-
-#### Phase 1 — Schema Evolution 🔄
-- [ ] 📂 Load V1, V2, V3 order files  
-- [ ] 🔄 Apply schema evolution  
-- [ ] 📜 Inspect table history  
-- [ ] 📝 Document column changes  
-
-#### Phase 2 — Incremental MERGE Logic 🚀
-- [ ] 🔑 Identify incremental key or timestamp  
-- [ ] 🔀 Build MERGE logic  
-- [ ] ✅ Validate row counts  
-
-#### Phase 3 — Metrics Development 📊
-- [ ] 🔗 Join orders + customers  
-- [ ] 📈 Create grouped aggregations  
-- [ ] 📊 Add window-based metrics (LTV, retention)  
-
-#### Phase 4 — Gold Table 🏆
-- [ ] 🤖 Use AI to propose schema  
-- [ ] 📝 Generate PySpark + SQL DDL  
-- [ ] 🗃️ Create and populate Gold table  
-
-#### Phase 5 — Validation ✅
-- [ ] 🔍 Validate schema  
-- [ ] 📊 Validate row counts  
-- [ ] 👀 Show final records  
 
 ---
 
@@ -458,14 +441,14 @@ flowchart TD
     E --> E1["✅ Check orderBy types<br/>✅ Ensure consistent timestamps"]
     F --> F1["✅ Z-ORDER table<br/>✅ OPTIMIZE operations"]
     
-    style C fill:#ffcdd2
-    style D fill:#ffcdd2
-    style E fill:#ffcdd2
-    style F fill:#ffcdd2
-    style C1 fill:#c8e6c9
-    style D1 fill:#c8e6c9
-    style E1 fill:#c8e6c9
-    style F1 fill:#c8e6c9
+    style C fill:#8B0000,color:#fff
+    style D fill:#8B0000,color:#fff
+    style E fill:#8B0000,color:#fff
+    style F fill:#8B0000,color:#fff
+    style C1 fill:#556B2F,color:#fff
+    style D1 fill:#556B2F,color:#fff
+    style E1 fill:#556B2F,color:#fff
+    style F1 fill:#556B2F,color:#fff
 ```
 
 ### Common Issues & Fixes
@@ -489,16 +472,6 @@ Error: Cannot write incompatible data to column
 
 ## 9. Key Takeaways & Success Criteria
 
-### Learning Progress Tracker
-
-```mermaid
-pie title Knowledge Areas Mastered
-    "Schema Evolution" : 20
-    "MERGE Operations" : 20
-    "Window Functions" : 20
-    "Gold Layer Design" : 20
-    "AI-Assisted Development" : 20
-```
 
 ### What You Should Understand
 - 🔄 Delta's schema evolution enables flexibility  
@@ -518,32 +491,6 @@ pie title Knowledge Areas Mastered
 
 ## 10. What You'll Practice This Week
 
-### Skills Development Roadmap
-
-```mermaid
-mindmap
-  root((Week 4 Skills))
-    Schema Evolution
-      Version Management
-      Type Compatibility
-      History Tracking
-    MERGE Operations
-      Incremental Logic
-      UPSERT Patterns
-      Performance Tuning
-    Analytics Functions
-      Window Functions
-      Aggregations
-      Join Strategies
-    Gold Layer Design
-      Business Metrics
-      KPI Development
-      Data Modeling
-    AI Integration
-      Schema Generation
-      DDL Creation
-      Best Practices
-```
 
 **Practice Areas:**
 - 🔄 Schema changes across versions  

@@ -18,6 +18,10 @@ DataPipelineEngineering/
 ├── week3/             # Session 3: Data Cleaning & Transformation
 │   ├── week3.md
 │   └── Week3_Spark_PySpark_Programming.ipynb
+├── week4/             # Session 4: PySpark Transformations & Modeling
+│   ├── week4.md
+│   ├── week4_enhanced.md
+│   └── Week4_PySpark_Transformations_Modeling.ipynb
 ├── code/              # Shared code and utilities
 ├── datasets/          # Training datasets
 └── resources/         # Additional learning materials
@@ -38,6 +42,7 @@ This comprehensive training program covers modern data pipeline engineering usin
 1. **Week 1**: Foundations of data pipeline engineering
 2. **Week 2**: Data ingestion strategies and storage patterns
 3. **Week 3**: Data cleaning, transformation, and quality management
+4. **Week 4**: PySpark transformations, schema evolution, and Gold layer modeling
 
 ## Getting Started
 

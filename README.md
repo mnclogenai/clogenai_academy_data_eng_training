@@ -20,8 +20,12 @@ DataPipelineEngineering/
 │   └── Week3_Spark_PySpark_Programming.ipynb
 ├── week4/             # Session 4: PySpark Transformations & Modeling
 │   ├── week4.md
-│   ├── week4_enhanced.md
+│   ├── week4-extra.md          # Additional code samples
 │   └── Week4_PySpark_Transformations_Modeling.ipynb
+├── week5/             # Session 5: Data Quality & Validation
+│   ├── week5.md
+│   ├── week5-extra.md          # Additional code samples
+│   └── Week5_Data_Quality_Validations.ipynb
 ├── code/              # Shared code and utilities
 ├── datasets/          # Training datasets
 └── resources/         # Additional learning materials
@@ -37,12 +41,28 @@ This comprehensive training program covers modern data pipeline engineering usin
 - **Medallion Architecture** - Bronze, Silver, Gold data layers
 - **Databricks** - Unified analytics platform
 - **ETL/ELT Patterns** - Modern data transformation approaches
+- **Data Quality & Validation** - Great Expectations, Delta constraints, monitoring
 
 ### Learning Path
 1. **Week 1**: Foundations of data pipeline engineering
 2. **Week 2**: Data ingestion strategies and storage patterns
 3. **Week 3**: Data cleaning, transformation, and quality management
 4. **Week 4**: PySpark transformations, schema evolution, and Gold layer modeling
+5. **Week 5**: Data quality dimensions, validation frameworks, and monitoring
+
+## Session Details
+
+### Week 4: PySpark Transformations & Modeling
+- **Focus**: Schema evolution, incremental processing, analytical transformations
+- **Key Topics**: MERGE operations, window functions, Gold layer design
+- **Deliverables**: Customer LTV analysis, revenue metrics, retention analysis
+
+### Week 5: Data Quality & Validation
+- **Focus**: Data quality dimensions, validation frameworks, monitoring
+- **Key Topics**: Great Expectations, Delta constraints, quality pipelines
+- **Deliverables**: Comprehensive data quality framework, automated validation
+
+
 
 ## Getting Started
 
@@ -50,6 +70,7 @@ This comprehensive training program covers modern data pipeline engineering usin
 2. Review the weekly session notes in order
 3. Practice with the provided code examples
 4. Complete hands-on exercises using the sample datasets
+5. Use the tech guides for comprehensive implementation reference
 
 ## Prerequisites
 - Basic Python programming knowledge

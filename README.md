@@ -26,6 +26,9 @@ DataPipelineEngineering/
 │   ├── week5.md
 │   ├── week5-extra.md          # Additional code samples
 │   └── Week5_Data_Quality_Validations.ipynb
+├── week6/             # Session 6: Dataflows, Lineage & Orchestration
+│   ├── week6.md
+│   └── Week6_Dataflows_Lineage_Orchestration_Automation.ipynb
 ├── code/              # Shared code and utilities
 ├── datasets/          # Training datasets
 └── resources/         # Additional learning materials
@@ -49,6 +52,7 @@ This comprehensive training program covers modern data pipeline engineering usin
 3. **Week 3**: Data cleaning, transformation, and quality management
 4. **Week 4**: PySpark transformations, schema evolution, and Gold layer modeling
 5. **Week 5**: Data quality dimensions, validation frameworks, and monitoring
+6. **Week 6**: Dataflows, lineage tracking, orchestration, and automation
 
 ## Session Details
 
@@ -61,6 +65,11 @@ This comprehensive training program covers modern data pipeline engineering usin
 - **Focus**: Data quality dimensions, validation frameworks, monitoring
 - **Key Topics**: Great Expectations, Delta constraints, quality pipelines
 - **Deliverables**: Comprehensive data quality framework, automated validation
+
+### Week 6: Dataflows, Lineage & Orchestration
+- **Focus**: Pipeline orchestration, data lineage tracking, workflow automation
+- **Key Topics**: Databricks workflows, data lineage, orchestration patterns, automation strategies
+- **Deliverables**: End-to-end orchestrated pipelines, lineage documentation, automated workflows
 
 
 

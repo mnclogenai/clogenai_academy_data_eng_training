@@ -29,6 +29,35 @@ DataPipelineEngineering/
 ├── week6/             # Session 6: Dataflows, Lineage & Orchestration
 │   ├── week6.md
 │   └── Week6_Dataflows_Lineage_Orchestration_Automation.ipynb
+├── week7/             # Session 7: CDC, Idempotency & Incremental Loads
+│   ├── Week7_Live_Session.md
+│   ├── Week7_Live_Demo_Notebook.py
+│   └── diagrams (cdc, watermark, merge idempotency)
+├── week8/             # Session 8: Data Warehousing & BI Integration
+│   ├── week8_live_session_guide.md
+│   ├── week8_live_demo.py
+│   ├── week8_dashboard_complete.py
+│   └── diagrams (fact vs dimension, query optimization, dashboard workflow)
+├── week9/             # Session 9: Data Governance & Security
+│   ├── week9_live_session_guide.md
+│   ├── week9_live_demo.py
+│   └── diagrams (RBAC, encryption, compliance)
+├── week10/            # Session 10: AI Features in Data Pipeline Engineering
+│   ├── week10_live_session_guide.md
+│   ├── week10_live_demo.py
+│   └── diagrams (anomaly detection, feature store, LLM pipeline)
+├── week11/            # Session 11: Advanced Performance Optimization & Utilities
+│   ├── week11_live_session_guide.md
+│   ├── week11_live_demo.py
+│   └── diagrams (query plans, caching, dbutils)
+├── week12-13/         # Capstone Project: End-to-End Data Pipeline Engineering
+│   ├── mentor/                 # Grading rubrics and mentor guides
+│   ├── capstone_success_guide.md # Student-friendly scoring guide
+│   ├── final_certification_checklist.md
+│   ├── week12-13_individual_scenarios.md
+│   ├── week12-13_kickoff_session_guide.md
+│   ├── week12-13_project_specification.md
+│   └── week12-13_submission_guidelines.md
 ├── code/              # Shared code and utilities
 ├── datasets/          # Training datasets
 └── resources/         # Additional learning materials
@@ -43,8 +72,12 @@ This comprehensive training program covers modern data pipeline engineering usin
 - **Delta Lake** - ACID transactions and data versioning
 - **Medallion Architecture** - Bronze, Silver, Gold data layers
 - **Databricks** - Unified analytics platform
+- **Unity Catalog** - Data governance and security
 - **ETL/ELT Patterns** - Modern data transformation approaches
 - **Data Quality & Validation** - Great Expectations, Delta constraints, monitoring
+- **Security & Compliance** - RBAC, encryption, GDPR, audit trails
+- **ML & AI Integration** - Anomaly detection, feature engineering, LLMs
+- **Performance Optimization** - Broadcast joins, Z-Ordering, AQE, dbutils
 
 ### Learning Path
 1. **Week 1**: Foundations of data pipeline engineering
@@ -53,6 +86,12 @@ This comprehensive training program covers modern data pipeline engineering usin
 4. **Week 4**: PySpark transformations, schema evolution, and Gold layer modeling
 5. **Week 5**: Data quality dimensions, validation frameworks, and monitoring
 6. **Week 6**: Dataflows, lineage tracking, orchestration, and automation
+7. **Week 7**: CDC, idempotency, and incremental loads
+8. **Week 8**: Data warehousing and BI integration
+9. **Week 9**: Data governance, security, and compliance
+10. **Week 10**: AI features in data pipeline engineering
+11. **Week 11**: Performance optimization and Databricks utilities
+12. **Weeks 12-13**: Capstone Project - End-to-End Data Pipeline Engineering
 
 ## Session Details
 
@@ -70,6 +109,37 @@ This comprehensive training program covers modern data pipeline engineering usin
 - **Focus**: Pipeline orchestration, data lineage tracking, workflow automation
 - **Key Topics**: Databricks workflows, data lineage, orchestration patterns, automation strategies
 - **Deliverables**: End-to-end orchestrated pipelines, lineage documentation, automated workflows
+
+### Week 7: CDC, Idempotency & Incremental Loads
+- **Focus**: Change Data Capture, idempotent pipelines, incremental processing
+- **Key Topics**: Watermarks, MERGE operations, late-arriving data, deduplication
+- **Deliverables**: Incremental CDC pipeline, idempotency testing, cost optimization analysis
+
+### Week 8: Data Warehousing & BI Integration
+- **Focus**: Gold-layer modeling, business analytics, dashboard creation
+- **Key Topics**: Fact/dimension tables, star schema, SQL analytics, Databricks dashboards
+- **Deliverables**: Sales analytics solution, interactive dashboards, business KPIs
+
+### Week 9: Data Governance & Security
+- **Focus**: Data security, privacy, compliance, and governance
+- **Key Topics**: RBAC, data masking, encryption, GDPR compliance, Unity Catalog, audit trails
+- **Deliverables**: Secure e-commerce platform, GDPR compliance implementation, comprehensive audit system
+
+### Week 10: AI Features in Data Pipeline Engineering
+- **Focus**: ML/AI integration in data pipelines
+- **Key Topics**: Anomaly detection, feature engineering, LLM integration, MLflow, model deployment
+- **Deliverables**: Fraud detection system, churn prediction model, AI-powered product classification
+
+### Week 11: Advanced Performance Optimization & Utilities
+- **Focus**: Making pipelines faster, cheaper, and production-ready
+- **Key Topics**: Query plans (EXPLAIN), Broadcast Joins, Z-Ordering, Databricks Utilities (dbutils)
+- **Deliverables**: Optimized ShopFast analytics pipeline, parameterized orchestration notebooks
+
+### Weeks 12-13: Capstone Project
+- **Focus**: Engineering Discipline & Lead Time to Value (SDLC Mastery)
+- **Key Topics**: Medallion Architecture, CDC logic, Data Quality (GX), AI Anomaly Detection, PII Masking, Performance Tuning, Version Control (Git), Documentation.
+- **Deliverables**: End-to-end production-grade data platform, GitHub repository with iterative history, Comprehensive technical report.
+- **Scoring**: 500 Score (25% of total course score) based on 5 SDLC disciplines.
 
 
 
